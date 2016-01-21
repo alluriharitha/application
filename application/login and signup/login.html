@@ -1,0 +1,45 @@
+<html>
+<head><title>LOGIN</title></head>
+<style>
+	body{background:url(f.jpg);}
+	h1{color: pink ;font-family: Jokerman;font-size:3em;text-transform:capitalize;}
+	h3{color: blue;font-family: Viner Hand ITC;font-size:1.5em;}
+	h2{color: yellow;font-family: aprajitha;font-size:1em;}
+		
+</style>
+
+<body>	
+
+	<h1>RAPIDO</h1><h3>[BAXIS(bike taxis)]</h3>
+	<form name="myForm" action="user" onSubmit="return validateForm()" method="post">	
+	<table align="center">
+	<tr><td><h2>Email</h2></td><td><input type="text" name="email"></td></tr>
+	<tr><td><h2>Password</h2></td><td><input type="password" name="pass"></td></tr>
+	<tr><td><h2><input type="submit" value="LOGIN"></h2></td></tr>
+	<tr><h2><td>NewUser?</td></h2><td><h2><a href="subscribe.html">Register</a></td></h2></tr>
+	</table>
+	</form>
+<script>
+function validateForm() {
+    var z = document.forms["myForm"]["email"].value;   
+    var atpos = z.indexOf("@");
+    var dotpos = z.lastIndexOf("."); 
+var y = document.forms["myForm"]["pass"].value;
+   
+  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=z.length || z==null ||z=="") {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+   
+    else if (y==null || y==""||y.length<6) {
+        alert("Weak password.Password should be of atleast 6 characters!");
+        return false;
+    }
+    
+   
+	
+
+}
+</script>
+</body>
+</html>

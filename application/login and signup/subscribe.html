@@ -1,0 +1,74 @@
+<html>
+<head><title>Subscribe</title>
+	<style>
+	#top{box-shadow:5px 5px 3px 1px #923;}
+	body{background:radial-gradient(yellow,green);}
+	</style>
+	
+</head>
+<body>
+	
+	<form name="myForm" action="subscribe" onSubmit="return validateForm()" method="post">
+	<div id="top">
+	<fieldset>
+	<legend>REGISTER</legend>
+	<table align="center">
+	<tr><td>First Name</td><td><input type="text" name="fname" ></td></tr>
+	<tr><td>Last Name</td><td><input type="text" name="lname"></td></tr>
+	<tr><td>Gender</td><td><label>Male<input type="radio" name="g" value="male">
+		</label></td><td><label>Female<input type="radio" name="g" value="female"></label></td></tr>
+	<tr><td>Password</td><td><input id="p1" type="password" name="pass"></td></tr>
+	<tr><td>Confirm password</td><td><input id="p2" type="password" name="pass1"></td></tr>
+	<tr><td>E-mail</td><td><input type="email" placeholder="you.gmail.com" name="email"></td></tr>
+	
+	<tr>
+	<td>COUNTRY</td><td><form><input name="country" list="country_name"><datalist id="country_name"><option value="America"><option value="Africa"><option value="India"><option value="China"><option value="Japan"><option value="Singapore"><option value="Australia">
+	</datalist></form></td></tr>
+	<tr><td><input type="submit" value="Register"></td></tr>
+	</table>
+	</fieldset>
+	</div>
+	</form>
+<script>
+function validateForm(){
+	var x=document.forms["myForm"]["fname"].value;
+	var y=document.forms["myForm"]["lname"].value;
+	var z=document.forms["myForm"]["g"].value;
+	var a=document.forms["myForm"]["pass"].value;
+	var b=document.forms["myForm"]["pass1"].value;
+	var c=document.forms["myForm"]["email"].value;
+	var d=document.forms["myForm"]["country"].value;
+	  var atpos = c.indexOf("@");
+    var dotpos = c.lastIndexOf("."); 
+   if (x==null || x=="") {
+        alert("First name must be filled out");
+        return false;
+    }
+    else if (y==null || y=="") {
+        alert("Last name must be filled out");
+        return false;
+    }
+    else if (z==null || z=="") {
+        alert("select gender");
+        return false;
+    }	
+   else if (a==null || a==""||a.length<6) {
+        alert("weak password. Password should be of atleast 6 characters!");
+        return false;
+    }
+   else if (b==null || b==""||b.length<6) {
+        alert("weak password. Password should be of atleast 6 characters!");
+        return false;
+    }
+     else  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=c.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }	
+    else if (d==null || d=="") {
+        alert("select a country");
+        return false;
+    }  
+}
+</script>  		
+</body>
+</html>
